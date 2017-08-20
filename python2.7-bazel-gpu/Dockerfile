@@ -1,4 +1,4 @@
-FROM triage/ubuntu16.04-bazel
+FROM triage/ubuntu16.04-bazel-gpu
 
 # Install Python
 RUN apt-get -y update && \
