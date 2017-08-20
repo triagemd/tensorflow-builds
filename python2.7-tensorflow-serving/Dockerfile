@@ -1,4 +1,4 @@
-FROM triage/python3.6-bazel
+FROM triage/python2.7-bazel
 
 # Build optimized tensorflow-serving and install
 ENV TENSORFLOW_SERVING_VERSION 1.3.0

@@ -1,4 +1,4 @@
-FROM triage/python3.6-bazel-gpu
+FROM triage/python2.7-bazel-gpu
 
 # Fix paths so that CUDNN can be found
 # See https://github.com/tensorflow/tensorflow/issues/8264
