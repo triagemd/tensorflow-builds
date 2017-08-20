@@ -1,1 +1,1 @@
-Tensorflow Docker images compiled for CPU-optimizations and GPUs.
+Tensorflow Docker images compiled with GPU support and CPU-optimizations.
