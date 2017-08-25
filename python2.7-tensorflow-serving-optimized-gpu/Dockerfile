@@ -33,6 +33,12 @@ RUN cd /opt && \
     cd .. && \
     pip install numpy grpcio && \
     bazel build -c opt \
+                --copt=-mavx \
+                --copt=-mavx2 \
+                --copt=-mfma \
+                --copt=-mfpmath=both \
+                --copt=-msse4.2 \
+                --copt=-msse4.1 \
                 --config=cuda \
                 --crosstool_top=@local_config_cuda//crosstool:toolchain \
         tensorflow_serving/... && \
