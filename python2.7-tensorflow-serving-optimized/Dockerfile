@@ -10,6 +10,13 @@ RUN cd /opt && \
     tensorflow/tools/ci_build/builds/configured CPU && \
     cd .. && \
     pip install numpy grpcio && \
-    bazel build -c opt tensorflow_serving/... && \
+    bazel build -c opt \
+                --copt=-mavx \
+                --copt=-mavx2 \
+                --copt=-mfma \
+                --copt=-mfpmath=both \
+                --copt=-msse4.2 \
+                --copt=-msse4.1 \
+        tensorflow_serving/... && \
     cp bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server /usr/local/bin/ && \
     bazel clean --expunge
