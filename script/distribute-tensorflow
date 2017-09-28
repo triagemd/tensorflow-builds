@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+TENSORFLOW_VERSION=1.3.0
+set -x
+docker build -t triage/python2.7-tensorflow:$TENSORFLOW_VERSION --build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION -f base/python2.7-tensorflow/Dockerfile .
+docker build -t triage/python2.7-tensorflow:latest --build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION -f base/python2.7-tensorflow/Dockerfile .
+docker build -t triage/python3.6-tensorflow:$TENSORFLOW_VERSION --build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION -f base/python3.6-tensorflow/Dockerfile .
+docker build -t triage/python3.6-tensorflow:latest --build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION -f base/python3.6-tensorflow/Dockerfile .
+docker push triage/python2.7-tensorflow:$TENSORFLOW_VERSION
+docker push triage/python2.7-tensorflow:latest
+docker push triage/python3.6-tensorflow:$TENSORFLOW_VERSION
+docker push triage/python3.6-tensorflow:latest
+
+docker build -t triage/python2.7-tensorflow-gpu:$TENSORFLOW_VERSION --build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION -f base/python2.7-tensorflow-gpu/Dockerfile .
+docker build -t triage/python2.7-tensorflow-gpu:latest --build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION -f base/python2.7-tensorflow-gpu/Dockerfile .
+docker build -t triage/python3.6-tensorflow-gpu:$TENSORFLOW_VERSION --build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION -f base/python3.6-tensorflow-gpu/Dockerfile .
+docker build -t triage/python3.6-tensorflow-gpu:latest --build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION -f base/python3.6-tensorflow-gpu/Dockerfile .
+docker push triage/python2.7-tensorflow-gpu:$TENSORFLOW_VERSION
+docker push triage/python2.7-tensorflow-gpu:latest
+docker push triage/python3.6-tensorflow-gpu:$TENSORFLOW_VERSION
+docker push triage/python3.6-tensorflow-gpu:latest

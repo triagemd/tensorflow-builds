@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -e
+BAZEL_VERSION=0.4.5
+set -x
+docker build -t triage/python2.7-gpu:latest -f base/python2.7-gpu/Dockerfile .
+docker build -t triage/python3.6-gpu:latest -f base/python3.6-gpu/Dockerfile .
+docker push triage/python2.7-gpu:latest
+docker push triage/python3.6-gpu:latest
+
+docker build -t triage/ubuntu16.04-bazel:$BAZEL_VERSION --build-arg BAZEL_VERSION=$BAZEL_VERSION -f base/ubuntu16.04-bazel/Dockerfile .
+docker build -t triage/ubuntu16.04-bazel:latest --build-arg BAZEL_VERSION=$BAZEL_VERSION -f base/ubuntu16.04-bazel/Dockerfile .
+docker push triage/ubuntu16.04-bazel:$BAZEL_VERSION
+docker push triage/ubuntu16.04-bazel:latest
+
+docker build -t triage/python2.7-bazel:$BAZEL_VERSION --build-arg BAZEL_VERSION=$BAZEL_VERSION -f base/python2.7-bazel/Dockerfile .
+docker build -t triage/python2.7-bazel:latest --build-arg BAZEL_VERSION=$BAZEL_VERSION -f base/python2.7-bazel/Dockerfile .
+docker build -t triage/python3.6-bazel:$BAZEL_VERSION --build-arg BAZEL_VERSION=$BAZEL_VERSION -f base/python3.6-bazel/Dockerfile .
+docker build -t triage/python3.6-bazel:latest --build-arg BAZEL_VERSION=$BAZEL_VERSION -f base/python3.6-bazel/Dockerfile .
+docker push triage/python2.7-bazel:$BAZEL_VERSION
+docker push triage/python2.7-bazel:latest
+docker push triage/python3.6-bazel:$BAZEL_VERSION
+docker push triage/python3.6-bazel:latest
+
+docker build -t triage/python2.7-bazel-gpu:$BAZEL_VERSION --build-arg BAZEL_VERSION=$BAZEL_VERSION -f base/python2.7-bazel-gpu/Dockerfile .
+docker build -t triage/python2.7-bazel-gpu:latest --build-arg BAZEL_VERSION=$BAZEL_VERSION -f base/python2.7-bazel-gpu/Dockerfile .
+docker build -t triage/python3.6-bazel-gpu:$BAZEL_VERSION --build-arg BAZEL_VERSION=$BAZEL_VERSION -f base/python3.6-bazel-gpu/Dockerfile .
+docker build -t triage/python3.6-bazel-gpu:latest --build-arg BAZEL_VERSION=$BAZEL_VERSION -f base/python3.6-bazel-gpu/Dockerfile .
+docker push triage/python2.7-bazel-gpu:$BAZEL_VERSION
+docker push triage/python2.7-bazel-gpu:latest
+docker push triage/python3.6-bazel-gpu:$BAZEL_VERSION
+docker push triage/python3.6-bazel-gpu:latest

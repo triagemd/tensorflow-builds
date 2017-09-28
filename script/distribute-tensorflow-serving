@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+TENSORFLOW_SERVING_VERSION=1.3.0
+set -x
+docker build -t triage/python2.7-tensorflow-serving:$TENSORFLOW_SERVING_VERSION --build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION -f base/python2.7-tensorflow-serving/Dockerfile .
+docker build -t triage/python2.7-tensorflow-serving:latest --build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION -f base/python2.7-tensorflow-serving/Dockerfile .
+docker build -t triage/python2.7-tensorflow-serving-optimized:$TENSORFLOW_SERVING_VERSION --build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION -f base/python2.7-tensorflow-serving-optimized/Dockerfile .
+docker build -t triage/python2.7-tensorflow-serving-optimized:latest --build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION -f base/python2.7-tensorflow-serving-optimized/Dockerfile .
+docker push triage/python2.7-tensorflow-serving:$TENSORFLOW_SERVING_VERSION
+docker push triage/python2.7-tensorflow-serving:latest
+docker push triage/python2.7-tensorflow-serving-optimized:$TENSORFLOW_SERVING_VERSION
+docker push triage/python2.7-tensorflow-serving-optimized:latest
+
+docker build -t triage/python2.7-tensorflow-serving-gpu:$TENSORFLOW_SERVING_VERSION --build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION -f base/python2.7-tensorflow-serving-gpu/Dockerfile .
+docker build -t triage/python2.7-tensorflow-serving-gpu:latest --build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION -f base/python2.7-tensorflow-serving-gpu/Dockerfile .
+docker build -t triage/python2.7-tensorflow-serving-optimized-gpu:$TENSORFLOW_SERVING_VERSION --build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION -f base/python2.7-tensorflow-serving-optimized-gpu/Dockerfile .
+docker build -t triage/python2.7-tensorflow-serving-optimized-gpu:latest --build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION -f base/python2.7-tensorflow-serving-optimized-gpu/Dockerfile .
+docker push triage/python2.7-tensorflow-serving-gpu:$TENSORFLOW_SERVING_VERSION
+docker push triage/python2.7-tensorflow-serving-gpu:latest
+docker push triage/python2.7-tensorflow-serving-optimized-gpu:$TENSORFLOW_SERVING_VERSION
+docker push triage/python2.7-tensorflow-serving-optimized-gpu:latest
