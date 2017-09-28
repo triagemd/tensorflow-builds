@@ -20,15 +20,18 @@ RUN git clone https://github.com/NVIDIA/nccl.git && \
 
 # Build optimized tensorflow-serving and install
 ARG TENSORFLOW_SERVING_VERSION
+ARG TENSORFLOW_VERSION
 ENV CI_BUILD_PYTHON python
 ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 ENV TF_NEED_CUDA 1
 ENV TF_CUDA_COMPUTE_CAPABILITIES=3.0,3.5,5.2,6.0,6.1
 RUN cd /opt && \
-    git clone --recurse-submodules https://github.com/tensorflow/serving && \
+    git clone https://github.com/tensorflow/serving && \
     cd serving && \
     git checkout tags/$TENSORFLOW_SERVING_VERSION && \
+    git submodule update --init --recursive && \
     cd tensorflow && \
+    git checkout tags/v$TENSORFLOW_VERSION && \
     tensorflow/tools/ci_build/builds/configured GPU && \
     cd .. && \
     pip install numpy grpcio && \

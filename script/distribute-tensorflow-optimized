@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-TENSORFLOW_VERSION=1.3.0
+TENSORFLOW_VERSION=1.3.1
 set -x
 docker build -t triage/python2.7-tensorflow-optimized:$TENSORFLOW_VERSION --build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION -f tensorflow-optimized/python2.7-tensorflow-optimized/Dockerfile .
 docker build -t triage/python2.7-tensorflow-optimized:latest --build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION -f tensorflow-optimized/python2.7-tensorflow-optimized/Dockerfile .
