@@ -1,18 +1,38 @@
-Tensorflow Docker images compiled with GPU support and CPU-optimizations.
+# tensorflow-builds
 
-[![Build Status](https://travis-ci.org/triagemd/tensorflow-docker.svg?branch=master)](https://travis-ci.org/triagemd/tensorflow-docker)
+Tensorflow binaries and Docker images compiled with GPU support and CPU optimizations.
+
+We now pull optimized Tensorflow wheels from [mind/wheels](https://github.com/mind/wheels) rather than building our own.
+
+## Updating Tensorflow version
+
+When a new version of Tensorflow is released:
+1. Update the versions at the top of `script/distribute*`.
+2. On a *very powerful* machine with Docker, set `$GITHUB_TOKEN` to [a GitHub access token with repo permissions](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) and run `script/distribute-binaries` (seriously, crank the CPU all the way up if using the cloud).
+3. Update the binary links below from https://github.com/triagemd/tensorflow-builds/releases.
+4. Push to master.
+
+---
+
+| Docker builds |
+|-|
+| [![Travis](https://travis-ci.org/triagemd/tensorflow-builds.svg?branch=master)](https://travis-ci.org/triagemd/tensorflow-builds) |
+
+| Binary | |
+|-|-|
+| **Tensorflow Serving:** |
+| tensorflow-serving-optimized | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.4.0/tensorflow_model_server_optimized |
+| tensorflow-serving-gpu | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.4.0/tensorflow_model_server_gpu |
+| tensorflow-serving-optimized-gpu | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.4.0/tensorflow_model_server_optimized_gpu |
 
 | Docker image | |
 |-|-|
-| **Python+GPU:** |
+| **Python + Intel MKL-DNN:** |
+| python2.7-mkl | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-mkl.svg)](https://hub.docker.com/r/triage/python2.7-mkl/) |
+| python3.6-mkl | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-mkl.svg)](https://hub.docker.com/r/triage/python3.6-mkl/) |
+| **Python + CUDA:** |
 | python2.7-gpu | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-gpu.svg)](https://hub.docker.com/r/triage/python2.7-gpu/) |
 | python3.6-gpu | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-gpu.svg)](https://hub.docker.com/r/triage/python3.6-gpu/) |
-| **Bazel:** |
-| ubuntu16.04-bazel | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/ubuntu16.04-bazel.svg)](https://hub.docker.com/r/triage/ubuntu16.04-bazel/) |
-| python2.7-bazel | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-bazel.svg)](https://hub.docker.com/r/triage/python2.7-bazel/) |
-| python3.6-bazel | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-bazel.svg)](https://hub.docker.com/r/triage/python3.6-bazel/) |
-| python2.7-bazel-gpu | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-bazel-gpu.svg)](https://hub.docker.com/r/triage/python2.7-bazel-gpu/) |
-| python3.6-bazel-gpu | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-bazel-gpu.svg)](https://hub.docker.com/r/triage/python3.6-bazel-gpu/) |
 | **Tensorflow:** |
 | python2.7-tensorflow | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-tensorflow.svg)](https://hub.docker.com/r/triage/python2.7-tensorflow/) |
 | python3.6-tensorflow | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-tensorflow.svg)](https://hub.docker.com/r/triage/python3.6-tensorflow/) |

@@ -3,8 +3,18 @@ sudo: required
 services:
   - docker
 
-script:
-  - if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false" ]]; then
-      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-      script/distribute;
-    fi
+jobs:
+  include:
+    - stage: base images
+      if: branch = master AND type != pull_request
+      script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && script/distribute-docker-base-mkl
+    - if: branch = master AND type != pull_request
+      script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && script/distribute-docker-base-gpu
+
+    - stage: all other images
+      if: branch = master AND type != pull_request
+      script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && script/distribute-docker-tensorflow
+    - if: branch = master AND type != pull_request
+      script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && script/distribute-docker-tensorflow-optimized
+    - if: branch = master AND type != pull_request
+      script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && script/distribute-docker-tensorflow-serving

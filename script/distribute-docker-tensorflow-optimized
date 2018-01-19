@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+source script/docker_build_and_push.sh
+TENSORFLOW_VERSION=1.4.1
+set -x
+
+docker_build_and_push triage/python2.7-tensorflow-optimized:$TENSORFLOW_VERSION tensorflow-optimized/python2.7-tensorflow-optimized.Dockerfile "--build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION"
+docker_build_and_push triage/python3.6-tensorflow-optimized:$TENSORFLOW_VERSION tensorflow-optimized/python3.6-tensorflow-optimized.Dockerfile "--build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION"
+
+docker_build_and_push triage/python2.7-tensorflow-optimized-gpu:$TENSORFLOW_VERSION tensorflow-optimized/python2.7-tensorflow-optimized-gpu.Dockerfile "--build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION"
+docker_build_and_push triage/python3.6-tensorflow-optimized-gpu:$TENSORFLOW_VERSION tensorflow-optimized/python3.6-tensorflow-optimized-gpu.Dockerfile "--build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION"
