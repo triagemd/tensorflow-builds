@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-script/distribute-base
-script/distribute-tensorflow
-script/distribute-tensorflow-optimized
-script/distribute-tensorflow-serving

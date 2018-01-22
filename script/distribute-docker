@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+script/distribute-docker-base-mkl
+script/distribute-docker-base-gpu
+script/distribute-docker-tensorflow
+script/distribute-docker-tensorflow-optimized
+script/distribute-docker-tensorflow-serving

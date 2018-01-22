@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+source script/docker_build_and_push.sh
+TENSORFLOW_SERVING_VERSION=1.4.0
+set -x
+
+docker_build_and_push triage/python2.7-tensorflow-serving:$TENSORFLOW_SERVING_VERSION tensorflow-serving/python2.7-tensorflow-serving.Dockerfile "--build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION"
+docker_build_and_push triage/python2.7-tensorflow-serving-optimized:$TENSORFLOW_SERVING_VERSION tensorflow-serving/python2.7-tensorflow-serving-optimized.Dockerfile "--build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION"
+
+docker_build_and_push triage/python2.7-tensorflow-serving-gpu:$TENSORFLOW_SERVING_VERSION tensorflow-serving/python2.7-tensorflow-serving-gpu.Dockerfile "--build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION"
+docker_build_and_push triage/python2.7-tensorflow-serving-optimized-gpu:$TENSORFLOW_SERVING_VERSION tensorflow-serving/python2.7-tensorflow-serving-optimized-gpu.Dockerfile "--build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION"

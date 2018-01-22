@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -e
+source script/docker_build_and_push.sh
+set -x
+
+docker_build_and_push triage/python2.7-mkl:latest base/python2.7-mkl.Dockerfile
+docker_build_and_push triage/python3.6-mkl:latest base/python3.6-mkl.Dockerfile
