@@ -5,3 +5,6 @@ set -x
 
 docker_build_and_push triage/python2.7-gpu:latest base/python2.7-gpu.Dockerfile
 docker_build_and_push triage/python3.6-gpu:latest base/python3.6-gpu.Dockerfile
+
+docker_build_and_push triage/python2.7-gpu-mkl:latest base/python2.7-gpu-mkl.Dockerfile
+docker_build_and_push triage/python3.6-gpu-mkl:latest base/python3.6-gpu-mkl.Dockerfile

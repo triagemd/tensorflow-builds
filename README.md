@@ -33,6 +33,9 @@ When a new version of Tensorflow is released:
 | **Python + CUDA:** |
 | python2.7-gpu | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-gpu.svg)](https://hub.docker.com/r/triage/python2.7-gpu/) |
 | python3.6-gpu | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-gpu.svg)](https://hub.docker.com/r/triage/python3.6-gpu/) |
+| **Python + CUDA + Intel MKL-DNN:** |
+| python2.7-gpu-mkl | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-gpu-mkl.svg)](https://hub.docker.com/r/triage/python2.7-gpu-mkl/) |
+| python3.6-gpu-mkl | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-gpu-mkl.svg)](https://hub.docker.com/r/triage/python3.6-gpu-mkl/) |
 | **Tensorflow:** |
 | python2.7-tensorflow | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-tensorflow.svg)](https://hub.docker.com/r/triage/python2.7-tensorflow/) |
 | python3.6-tensorflow | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-tensorflow.svg)](https://hub.docker.com/r/triage/python3.6-tensorflow/) |
