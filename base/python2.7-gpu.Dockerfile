@@ -1,4 +1,5 @@
-FROM nvidia/cuda:8.0-cudnn6-runtime-ubuntu16.04
+ARG CUDA_VERSION
+FROM nvidia/cuda:${CUDA_VERSION}-cudnn7-runtime-ubuntu16.04
 
 # Install Python
 RUN apt-get -y update && \
@@ -12,4 +13,4 @@ ENV LD_LIBRARY_PATH /usr/local/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64/s
 # See https://github.com/tensorflow/tensorflow/issues/14573, https://github.com/tensorflow/tensorflow/issues/8264
 RUN mkdir /usr/lib/x86_64-linux-gnu/include/ && \
     ln -s /usr/lib/x86_64-linux-gnu/libcudnn.so /usr/local/cuda/lib64/libcudnn.so && \
-    ln -s /usr/lib/x86_64-linux-gnu/libcudnn.so.6 /usr/local/cuda/lib64/libcudnn.so.6
+    ln -s /usr/lib/x86_64-linux-gnu/libcudnn.so.7 /usr/local/cuda/lib64/libcudnn.so.7

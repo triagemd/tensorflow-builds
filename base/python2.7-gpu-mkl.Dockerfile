@@ -1,4 +1,4 @@
-FROM triage/python2.7-gpu
+FROM triage/python2.7-cuda9.1
 
 # Install MKL-DNN
 RUN apt-get -y update && \

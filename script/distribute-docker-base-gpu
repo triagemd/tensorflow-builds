@@ -3,8 +3,11 @@ set -e
 source script/docker_build_and_push.sh
 set -x
 
-docker_build_and_push triage/python2.7-gpu:latest base/python2.7-gpu.Dockerfile
-docker_build_and_push triage/python3.6-gpu:latest base/python3.6-gpu.Dockerfile
+docker_build_and_push triage/python2.7-cuda9.0:latest base/python2.7-gpu.Dockerfile "--build-arg CUDA_VERSION=9.0"
+docker_build_and_push triage/python3.6-cuda9.0:latest base/python3.6-gpu.Dockerfile "--build-arg CUDA_VERSION=9.0"
 
-docker_build_and_push triage/python2.7-gpu-mkl:latest base/python2.7-gpu-mkl.Dockerfile
-docker_build_and_push triage/python3.6-gpu-mkl:latest base/python3.6-gpu-mkl.Dockerfile
+docker_build_and_push triage/python2.7-cuda9.1:latest base/python2.7-gpu.Dockerfile "--build-arg CUDA_VERSION=9.1"
+docker_build_and_push triage/python3.6-cuda9.1:latest base/python3.6-gpu.Dockerfile "--build-arg CUDA_VERSION=9.1"
+
+docker_build_and_push triage/python2.7-cuda9.1-mkl:latest base/python2.7-gpu-mkl.Dockerfile
+docker_build_and_push triage/python3.6-cuda9.1-mkl:latest base/python3.6-gpu-mkl.Dockerfile
