@@ -21,9 +21,9 @@ When a new version of Tensorflow is released:
 | Binary | |
 |-|-|
 | **Tensorflow Serving:** |
-| tensorflow-serving-optimized | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.4.0/tensorflow_model_server_optimized |
-| tensorflow-serving-gpu | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.4.0/tensorflow_model_server_gpu |
-| tensorflow-serving-optimized-gpu | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.4.0/tensorflow_model_server_optimized_gpu |
+| tensorflow-serving-optimized | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.5.0/tensorflow_model_server_optimized |
+| tensorflow-serving-gpu | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.5.0/tensorflow_model_server_gpu |
+| tensorflow-serving-optimized-gpu | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.5.0/tensorflow_model_server_optimized_gpu |
 
 | Docker image | |
 |-|-|
