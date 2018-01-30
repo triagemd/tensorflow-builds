@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 source script/docker_build_and_push.sh
-TENSORFLOW_SERVING_VERSION=1.4.0
+TENSORFLOW_SERVING_VERSION=1.5.0
 set -x
 
 docker_build_and_push triage/python2.7-tensorflow-serving:$TENSORFLOW_SERVING_VERSION tensorflow-serving/python2.7-tensorflow-serving.Dockerfile "--build-arg TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION"

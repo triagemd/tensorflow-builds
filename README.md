@@ -21,9 +21,9 @@ When a new version of Tensorflow is released:
 | Binary | |
 |-|-|
 | **Tensorflow Serving:** |
-| tensorflow-serving-optimized | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.4.0/tensorflow_model_server_optimized |
-| tensorflow-serving-gpu | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.4.0/tensorflow_model_server_gpu |
-| tensorflow-serving-optimized-gpu | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.4.0/tensorflow_model_server_optimized_gpu |
+| tensorflow-serving-optimized | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.5.0/tensorflow_model_server_optimized |
+| tensorflow-serving-gpu | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.5.0/tensorflow_model_server_gpu |
+| tensorflow-serving-optimized-gpu | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.5.0/tensorflow_model_server_optimized_gpu |
 
 | Docker image | |
 |-|-|
@@ -31,11 +31,13 @@ When a new version of Tensorflow is released:
 | python2.7-mkl | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-mkl.svg)](https://hub.docker.com/r/triage/python2.7-mkl/) |
 | python3.6-mkl | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-mkl.svg)](https://hub.docker.com/r/triage/python3.6-mkl/) |
 | **Python + CUDA:** |
-| python2.7-gpu | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-gpu.svg)](https://hub.docker.com/r/triage/python2.7-gpu/) |
-| python3.6-gpu | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-gpu.svg)](https://hub.docker.com/r/triage/python3.6-gpu/) |
+| python2.7-cuda9.0 | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-cuda9.0.svg)](https://hub.docker.com/r/triage/python2.7-cuda9.0/) |
+| python3.6-cuda9.0 | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-cuda9.0.svg)](https://hub.docker.com/r/triage/python3.6-cuda9.0/) |
+| python2.7-cuda9.1 | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-cuda9.1.svg)](https://hub.docker.com/r/triage/python2.7-cuda9.1/) |
+| python3.6-cuda9.1 | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-cuda9.1.svg)](https://hub.docker.com/r/triage/python3.6-cuda9.1/) |
 | **Python + CUDA + Intel MKL-DNN:** |
-| python2.7-gpu-mkl | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-gpu-mkl.svg)](https://hub.docker.com/r/triage/python2.7-gpu-mkl/) |
-| python3.6-gpu-mkl | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-gpu-mkl.svg)](https://hub.docker.com/r/triage/python3.6-gpu-mkl/) |
+| python2.7-cuda9.1-mkl | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-cuda9.1-mkl.svg)](https://hub.docker.com/r/triage/python2.7-cuda9.1-mkl/) |
+| python3.6-cuda9.1-mkl | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-cuda9.1-mkl.svg)](https://hub.docker.com/r/triage/python3.6-cuda9.1-mkl/) |
 | **Tensorflow:** |
 | python2.7-tensorflow | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python2.7-tensorflow.svg)](https://hub.docker.com/r/triage/python2.7-tensorflow/) |
 | python3.6-tensorflow | [![Docker Pulls](https://img.shields.io/docker/pulls/triage/python3.6-tensorflow.svg)](https://hub.docker.com/r/triage/python3.6-tensorflow/) |
