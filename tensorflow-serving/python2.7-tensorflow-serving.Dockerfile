@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM triage/python2.7-tensorflow
 
 ARG TENSORFLOW_SERVING_VERSION
 RUN echo "deb [arch=amd64] http://storage.googleapis.com/tensorflow-serving-apt stable tensorflow-model-server tensorflow-model-server-universal" | tee /etc/apt/sources.list.d/tensorflow-serving.list  && \
