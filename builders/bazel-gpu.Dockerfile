@@ -1,4 +1,5 @@
-FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
+ARG CUDA_VERSION
+FROM nvidia/cuda:${CUDA_VERSION}-cudnn7-devel-ubuntu16.04
 
 ARG BAZEL_VERSION
 RUN apt-get -y update && \
