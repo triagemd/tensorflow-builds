@@ -1,15 +1,11 @@
 ARG CUDA_VERSION
 FROM nvidia/cuda:${CUDA_VERSION}-cudnn7-devel-ubuntu16.04
 
-ARG BAZEL_VERSION
 RUN apt-get -y update && \
-    apt-get -y install build-essential software-properties-common curl unzip openjdk-8-jdk openjdk-8-jre-headless git python python-dev python-pip python-virtualenv && \
-    echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list && \
-    curl https://bazel.build/bazel-release.pub.gpg | apt-key add - && \
-    apt-get -y update && \
-    apt-get -y install bazel=$BAZEL_VERSION && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get -y install build-essential software-properties-common curl unzip wget pkg-config zip zlib1g-dev openjdk-8-jdk openjdk-8-jre-headless git python python-dev python-pip python-virtualenv && \
+    wget https://github.com/bazelbuild/bazel/releases/download/0.9.0/bazel-0.9.0-installer-linux-x86_64.sh && \
+    chmod +x bazel-0.9.0-installer-linux-x86_64.sh && \
+    ./bazel-0.9.0-installer-linux-x86_64.sh
 
 ENV LD_LIBRARY_PATH /usr/local/lib:/usr/local/cuda/lib64:/usr/local/cuda/lib64/stubs:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 
