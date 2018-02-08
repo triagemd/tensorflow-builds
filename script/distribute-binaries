@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -e
-BAZEL_VERSION=0.9.0
 TENSORFLOW_VERSION=1.5.0
 TENSORFLOW_SERVING_VERSION=1.5.0
 set -x
 
 # build base images
-docker build -t bazel-cpu --build-arg BAZEL_VERSION=$BAZEL_VERSION -f builders/bazel-cpu.Dockerfile .
-docker build -t bazel-gpu --build-arg BAZEL_VERSION=$BAZEL_VERSION -f builders/bazel-gpu.Dockerfile .
+docker build -t bazel-cpu -f builders/bazel-cpu.Dockerfile .
+docker build -t bazel-gpu-cuda9.0 --build-arg CUDA_VERSION=9.0 -f builders/bazel-gpu.Dockerfile .
+docker build -t bazel-gpu-cuda9.1 --build-arg CUDA_VERSION=9.1 -f builders/bazel-gpu.Dockerfile .
 
 # fetch releases tool and make the release
 wget -qO- https://github.com/aktau/github-release/releases/download/v0.7.2/linux-amd64-github-release.tar.bz2 | tar xvj -C /tmp --strip-components 3 bin/linux/amd64/github-release
@@ -27,7 +27,7 @@ docker run --rm -v $(pwd)/builders/build-tensorflow-serving-optimized.sh:/build.
 # tf-serving-gpu
 docker run --rm -v $(pwd)/builders/build-tensorflow-serving-gpu.sh:/build.sh -v $(pwd)/builds:/builds \
            -e TENSORFLOW_VERSION=$TENSORFLOW_VERSION -e TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION \
-           bazel-gpu bash /build.sh
+           bazel-gpu-cuda9.0 bash /build.sh
 /tmp/github-release upload --user triagemd --repo tensorflow-builds \
                            --tag tf-serving-$TENSORFLOW_SERVING_VERSION \
                            --name tensorflow_model_server_gpu --file builds/tensorflow_model_server_gpu
@@ -35,7 +35,7 @@ docker run --rm -v $(pwd)/builders/build-tensorflow-serving-gpu.sh:/build.sh -v 
 # tf-serving-optimized-gpu
 docker run --rm -v $(pwd)/builders/build-tensorflow-serving-optimized-gpu.sh:/build.sh -v $(pwd)/builds:/builds \
            -e TENSORFLOW_VERSION=$TENSORFLOW_VERSION -e TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION \
-           bazel-gpu bash /build.sh
+           bazel-gpu-cuda9.1 bash /build.sh
 /tmp/github-release upload --user triagemd --repo tensorflow-builds \
                            --tag tf-serving-$TENSORFLOW_SERVING_VERSION \
                            --name tensorflow_model_server_optimized_gpu --file builds/tensorflow_model_server_optimized_gpu
