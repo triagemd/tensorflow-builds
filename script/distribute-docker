@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+set -e
 script/distribute-docker-base-mkl
 script/distribute-docker-base-gpu
 script/distribute-docker-tensorflow
