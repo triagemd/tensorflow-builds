@@ -14,7 +14,7 @@ wget -qO- https://github.com/aktau/github-release/releases/download/v0.7.2/linux
 /tmp/github-release release --user triagemd --repo tensorflow-builds \
                             --tag tf-serving-$TENSORFLOW_SERVING_VERSION \
                             --name "TensorFlow Serving v$TENSORFLOW_SERVING_VERSION"
-mkdir builds
+mkdir -p builds
 
 # tf-serving-optimized
 docker run --rm -v $(pwd)/builders/build-tensorflow-serving-optimized.sh:/build.sh -v $(pwd)/builds:/builds \
