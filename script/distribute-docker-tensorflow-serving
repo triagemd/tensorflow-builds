@@ -2,7 +2,7 @@
 set -e
 source script/docker_build_and_push.sh
 GOOGLE_TENSORFLOW_SERVING_VERSION=1.6.0
-BINARIES_TENSORFLOW_SERVING_VERSION=1.5.0
+BINARIES_TENSORFLOW_SERVING_VERSION=1.6.0
 set -x
 
 docker_build_and_push triage/python2.7-tensorflow-serving:$GOOGLE_TENSORFLOW_SERVING_VERSION tensorflow-serving/python2.7-tensorflow-serving.Dockerfile "--build-arg TENSORFLOW_SERVING_VERSION=$GOOGLE_TENSORFLOW_SERVING_VERSION"
