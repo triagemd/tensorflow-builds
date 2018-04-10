@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
-TENSORFLOW_VERSION=1.5.0
-TENSORFLOW_SERVING_VERSION=1.5.0
+TENSORFLOW_VERSION=1.6.0
+TENSORFLOW_SERVING_VERSION=1.6.0
 set -x
 
 # build base images

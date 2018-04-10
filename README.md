@@ -20,6 +20,10 @@ When a new version of Tensorflow is released:
 
 | Binary | |
 |-|-|
+| **Tensorflow Serving 1.6:** |
+| CPU optimized, with Intel MKL | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.6.0/tensorflow_model_server_optimized |
+| GPU, CUDA 9.0, without CPU optimization | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.6.0/tensorflow_model_server_gpu |
+| GPU, CUDA 9.1, with CPU optimization, with Intel MKL | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.6.0/tensorflow_model_server_optimized_gpu |
 | **Tensorflow Serving 1.5:** |
 | CPU optimized, with Intel MKL | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.5.0/tensorflow_model_server_optimized |
 | GPU, CUDA 9.0, without CPU optimization | https://github.com/triagemd/tensorflow-builds/releases/download/tf-serving-1.5.0/tensorflow_model_server_gpu |
