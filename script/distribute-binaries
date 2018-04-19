@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -e
-TENSORFLOW_VERSION=1.6.0
-TENSORFLOW_SERVING_VERSION=1.6.0
+TENSORFLOW_SERVING_VERSION=1.7.0
 set -x
 
 # build base images
@@ -18,7 +17,7 @@ mkdir -p builds
 
 # tf-serving-optimized
 docker run --rm -v $(pwd)/builders/build-tensorflow-serving-optimized.sh:/build.sh -v $(pwd)/builds:/builds \
-           -e TENSORFLOW_VERSION=$TENSORFLOW_VERSION -e TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION \
+           -e TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION \
            bazel-cpu bash /build.sh
 /tmp/github-release upload --user triagemd --repo tensorflow-builds \
                            --tag tf-serving-$TENSORFLOW_SERVING_VERSION \
@@ -26,7 +25,7 @@ docker run --rm -v $(pwd)/builders/build-tensorflow-serving-optimized.sh:/build.
 
 # tf-serving-gpu
 docker run --rm -v $(pwd)/builders/build-tensorflow-serving-gpu.sh:/build.sh -v $(pwd)/builds:/builds \
-           -e TENSORFLOW_VERSION=$TENSORFLOW_VERSION -e TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION \
+           -e TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION \
            bazel-gpu-cuda9.0 bash /build.sh
 /tmp/github-release upload --user triagemd --repo tensorflow-builds \
                            --tag tf-serving-$TENSORFLOW_SERVING_VERSION \
@@ -34,7 +33,7 @@ docker run --rm -v $(pwd)/builders/build-tensorflow-serving-gpu.sh:/build.sh -v 
 
 # tf-serving-optimized-gpu
 docker run --rm -v $(pwd)/builders/build-tensorflow-serving-optimized-gpu.sh:/build.sh -v $(pwd)/builds:/builds \
-           -e TENSORFLOW_VERSION=$TENSORFLOW_VERSION -e TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION \
+           -e TENSORFLOW_SERVING_VERSION=$TENSORFLOW_SERVING_VERSION \
            bazel-gpu-cuda9.1 bash /build.sh
 /tmp/github-release upload --user triagemd --repo tensorflow-builds \
                            --tag tf-serving-$TENSORFLOW_SERVING_VERSION \
