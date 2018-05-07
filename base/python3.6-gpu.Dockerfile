@@ -6,7 +6,7 @@ RUN apt-get -y update && \
     apt-get install -y software-properties-common && \
     add-apt-repository ppa:jonathonf/python-3.6 && \
     apt-get -y update && \
-    apt-get install -y python3.6 python3.6-dev python3-pip python3.6-venv wget && \
+    apt-get install -y python3.6 python3.6-dev python3-pip python3-distutils python3.6-venv wget && \
     apt-get clean && \
     python3.6 -m pip install --no-cache-dir --upgrade pip wheel && \
     cd /usr/bin && \
