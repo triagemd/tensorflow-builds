@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e
 source script/docker_build_and_push.sh
-TENSORFLOW_VERSION=1.6.0
-MIND_RELEASE_TAG=tf1.6
+TENSORFLOW_VERSION=1.7.0
+MIND_RELEASE_TAG=tf1.7
 set -x
 
 docker_build_and_push triage/python2.7-tensorflow-optimized:$TENSORFLOW_VERSION tensorflow-optimized/python2.7-tensorflow-optimized.Dockerfile "--build-arg TENSORFLOW_VERSION=$TENSORFLOW_VERSION --build-arg MIND_RELEASE_TAG=$MIND_RELEASE_TAG"
