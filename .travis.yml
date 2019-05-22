@@ -10,10 +10,12 @@ jobs:
       script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && script/distribute-docker-base-mkl
     - if: branch = master AND type != pull_request
       script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && script/distribute-docker-base-gpu
+    - if: branch = master AND type != pull_request
+      script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && script/distribute-docker-tensorflow
 
     - stage: all other images
       if: branch = master AND type != pull_request
-      script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && script/distribute-docker-tensorflow
+      script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && script/distribute-docker-tensorflow-gpu
     - if: branch = master AND type != pull_request
       script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && script/distribute-docker-tensorflow-optimized
     - if: branch = master AND type != pull_request
