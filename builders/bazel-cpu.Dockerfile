@@ -8,7 +8,7 @@ RUN apt-get -y update && \
 
 # Install MKL-DNN
 RUN cd /tmp && \
-    git clone https://github.com/01org/mkl-dnn.git && \
+    git clone -b v0.20 https://github.com/intel/mkl-dnn.git && \
     cd mkl-dnn/scripts && \
     ./prepare_mkl.sh && \
     mkdir -p ../build && cd ../build && \
