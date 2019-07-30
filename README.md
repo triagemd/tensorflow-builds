@@ -1,3 +1,9 @@
+**Warning:** This repo is now unmaintained and unnecessary.
+
+Use the official `tensorflow/serving` Docker images instead: https://hub.docker.com/r/tensorflow/serving
+
+---
+
 # tensorflow-builds
 
 Tensorflow binaries and Docker images compiled with GPU support and CPU optimizations.
